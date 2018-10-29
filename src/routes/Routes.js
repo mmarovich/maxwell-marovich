@@ -16,13 +16,10 @@ class Routes extends Component {
   }
 
   handleBurger = () => {
-    console.log('hello')
     this.setState({burgerActive: !this.state.burgerActive})
   }
 
   showNavbar = () => {
-    console.log('hello');
-    console.log(this.state.showNavbar)
     this.setState({showNavbar: !this.state.showNavbar})
   }
 

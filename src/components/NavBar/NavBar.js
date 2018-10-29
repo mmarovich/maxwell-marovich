@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
-import Slide from 'react-reveal/Slide';
+import Bounce from 'react-reveal/Bounce';
 import './NavBar.css';
 
 class NavBar extends Component {
 
   render() {
-    console.log(this.props.showNavbar)
     return (
-      <Slide right when={this.props.showNavbar}>
-        <div className="navbar-container">
+      <Bounce right when={this.props.showNavbar}>
+        <div className="navbar-container" style={{zIndex: 100}}>
 
         </div>
-      </Slide>
+      </Bounce>
     )
   }
 }

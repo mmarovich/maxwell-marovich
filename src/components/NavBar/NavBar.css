@@ -2,8 +2,8 @@
   display: flex;
   position: fixed;
   top: 0;
-  right: 0;
   height: 100px;
   width: 100%;
   background-color: rgba(0,0,0,.8);
+  margin-left: 70px;
 }

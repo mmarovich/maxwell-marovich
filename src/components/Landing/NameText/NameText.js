@@ -4,9 +4,13 @@ import './NameText.css';
 
 const NameText = () => {
   return (
-    <div>
-      <h1 className='shimmer'>Maxwell Marovich</h1>
-    </div>
+      <h1 
+        className='shimmer'
+        style={{
+          position: 'absolute',
+          top: '33%',
+        }} 
+      >Maxwell Marovich</h1>
   )
 }
 

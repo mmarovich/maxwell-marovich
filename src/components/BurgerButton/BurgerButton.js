@@ -5,12 +5,12 @@ import { Slider } from 'react-burgers'
 class BurgerButton extends Component {
 
   render() {
-    console.log(this.props)
     return (
       <div style={{
         position: 'fixed',
         top: 0,
-        right: 0
+        right: 0,
+        zIndex: 100
       }}>
         <Slider
           onClick={() => {
