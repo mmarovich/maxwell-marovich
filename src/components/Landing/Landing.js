@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import NameText from './NameText';
-import Background from '../../Images/Max.png';
+import Background from '../../assets/images/Max.png';
 
 class Landing extends Component {
 
