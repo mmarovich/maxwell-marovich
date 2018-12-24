@@ -1,15 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
+import LazyLoad from 'react-lazyload';
+import Fade from 'react-reveal/Fade';
 
+import AboutHeader from './Header';
 import { QuotesModal } from './modals';
 
 const About = (props) => {
   return (
-    <div style={{ backgroundColor: 'rgba(150,150,150,1)', padding: '10px', width: '100%' }}>
-      <h1 style={{ margin: 0, textAlign: 'center' }}>Hello</h1>
+    <div style={{ backgroundColor: 'rgba(25,25,25,1)', padding: '10px', width: '100%' }}>
+      <AboutHeader />
       <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'space-around' }}>
-        <div style={styles.aboutContainer}>
-          <QuotesModal view={props.view} />
-        </div>
+        <LazyLoad unmountIfInvisible={true} >
+          <Fade left>
+            <div style={styles.aboutContainer}>
+              <QuotesModal view={props.view} />
+            </div>
+          </Fade>
+        </LazyLoad>
         <div style={styles.aboutContainer}>
 
         </div>
@@ -24,10 +31,9 @@ const About = (props) => {
 
 const styles = {
   aboutContainer: {
-    margin: '20px 10px', 
-    height: '400px', 
-    width: '320px', 
-    backgroundColor: 'green'
+    margin: '20px 10px',
+    height: '400px',
+    width: '400px'
   }
 }
 

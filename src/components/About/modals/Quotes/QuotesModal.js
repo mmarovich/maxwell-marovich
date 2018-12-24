@@ -2,9 +2,11 @@ import React from 'react';
 import Rodal from 'rodal';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
-import Bounce from 'react-reveal/Bounce';
+import LazyLoad from 'react-lazyload';
+
 
 import quotes from './quotes';
+import QuoteList from './QuoteList';
 import '../rodal.css';
 
 class QuotesModal extends React.Component {
@@ -28,25 +30,39 @@ class QuotesModal extends React.Component {
 
     displayQuotes = () => {
         return this.state.quotes.map((quote, i) => {
-            return <div key={i} style={{height: this.props.view.height * .75, backgroundColor: 'black'}}>
-                <img src={quote.image} style={{height: '100%', minWidth: '970px'}}/>
-                <div className="legend" style={{opacity: 0.75, fontSize: '14px'}}>
-                    <Bounce when={this.state.visible ? this.state.selected === i : false}>
-                        <div>
-                            <p>{quote.quote}</p>
-                        </div>
-                    </Bounce>
-                </div>
-                
-            </div>
+            return <QuoteList
+                key={i}
+                view={this.props.view}
+                visible={this.state.visible}
+                selected={this.state.selected}
+                quote={quote}
+                index={i}
+            />
         })
     }
 
     render() {
-        console.log(this.state.selected)
         return (
             <div style={{ height: '100%' }}>
-                <div onClick={this.handleModal} style={{ height: '100%', width: '300px', backgroundColor: 'red' }}>
+                <div
+                    onClick={this.handleModal}
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        textAlign: 'center',
+                        height: '100%',
+                        width: '300px',
+                        padding: '10px',
+                        backgroundColor: 'rgba(50,50,50,1)',
+                        margin: 'auto',
+                        backgroundImage: 'url(' + require(`../../../../assets/images/quotes.png`) + ')',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center center',
+                        backgroundRepeat: 'no-repeat',
+                    }}
+                >
+                    <h1 style={{ color: 'white', fontSize: '50px', lineHeight: '80px' }}>Sayings To Live By</h1>
                 </div>
 
                 <Rodal
@@ -58,14 +74,21 @@ class QuotesModal extends React.Component {
                     customMaskStyles={{ backgroundColor: 'rgba(0,0,0,.9)' }}
                     height={
                         // this.props.view.width < 1020 ? 
-                        this.props.view.height * .8 }
+                        this.props.view.height * .8}
                     width={this.props.view.width < 1250 ? this.props.view.width * .8 : 1000}
                 >
                     <Carousel
                         showStatus={false}
                         showThumbs={false}
-                        onChange={index => this.setState({selected: index})}
+                        onChange={index => this.setState({ selected: index })}
                         selectedItem={this.state.selected}
+                        infiniteLoop={true}
+                        transitionTime={200}
+                    /* I'd like to have an infinite scroll here, however the scroll doesn't start until
+                        the carousel is clicked.  I'd like it to start on carousel load. */
+                    // autoPlay={true}
+                    // interval={5000}
+                    // stopOnHover={true}
                     >
                         {this.displayQuotes()}
                     </Carousel>
