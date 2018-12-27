@@ -4,14 +4,23 @@ import LazyLoad from 'react-lazyload';
 
 const AboutHeader = (props) => {
     return (
-        <LazyLoad
-            debounce={true}
-            unmountIfInvisible={true}
-        >
-            <Typing>
-                <h1 style={{textAlign: 'center'}}>I'm assuming you might want to know a little about me...</h1>
-            </Typing>
-        </LazyLoad>
+        <div style={{height: '150px', position: 'relative'}}>
+            <LazyLoad
+                debounce={true}
+                unmountIfInvisible={true}
+                offset={[0, 200]}
+            >
+                <Typing
+                    startDelay={2000}
+                >
+                    <div style={{ height: '150px' }}>
+                        <h1 style={{ textAlign: 'center', margin: 0 }}>I'm assuming you might want to know</h1>
+                        <Typing.Delay ms={1000} />
+                        <h1 style={{ textAlign: 'center', margin: 0 }}>a little about me...</h1>
+                    </div>
+                </Typing>
+            </LazyLoad>
+        </div>
     )
 }
 

@@ -26,7 +26,7 @@ class Main extends Component {
 
   render() {
     return(
-      <div className="main-container" style={{backgroundColor: 'black', overflow: 'hidden'}}>
+      <div className="main-container page" style={{backgroundColor: 'black', overflow: 'hidden'}}>
         <Landing view={{height: this.state.height, width: this.state.width}} />
         <About view={{height: this.state.height, width: this.state.width}} />
       </div>

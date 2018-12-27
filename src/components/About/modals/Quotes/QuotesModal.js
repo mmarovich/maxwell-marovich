@@ -2,7 +2,7 @@ import React from 'react';
 import Rodal from 'rodal';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
-import LazyLoad from 'react-lazyload';
+import Music from './Music';
 
 
 import quotes from './quotes';
@@ -15,8 +15,9 @@ class QuotesModal extends React.Component {
 
         this.state = {
             visible: false,
+            closed: false,
             quotes: [],
-            selected: 0
+            selected: 0,
         };
     }
 
@@ -24,8 +25,15 @@ class QuotesModal extends React.Component {
         this.setState({ quotes })
     }
 
+    componentDidUpdate() {
+        const {visible, quotes, selected } = this.state;
+        if (visible && quotes[selected].sound) {
+            console.log(quotes[selected].sound)
+        }
+    }
+
     handleModal = () => {
-        this.setState({ visible: this.state.visible ? false : true });
+        this.setState({ visible: this.state.visible ? false : true, closed: this.state.visible ? true : false});
     }
 
     displayQuotes = () => {
@@ -42,6 +50,8 @@ class QuotesModal extends React.Component {
     }
 
     render() {
+        const {visible, quotes, selected, closed } = this.state;
+        console.log(visible, closed)
         return (
             <div style={{ height: '100%' }}>
                 <div
@@ -60,13 +70,14 @@ class QuotesModal extends React.Component {
                         backgroundSize: 'cover',
                         backgroundPosition: 'center center',
                         backgroundRepeat: 'no-repeat',
+                        cursor: 'pointer',
                     }}
                 >
                     <h1 style={{ color: 'white', fontSize: '50px', lineHeight: '80px' }}>Sayings To Live By</h1>
                 </div>
 
                 <Rodal
-                    visible={this.state.visible}
+                    visible={visible}
                     onClose={this.handleModal}
                     showCloseButton={false}
                     animation="slideLeft"
@@ -81,7 +92,7 @@ class QuotesModal extends React.Component {
                         showStatus={false}
                         showThumbs={false}
                         onChange={index => this.setState({ selected: index })}
-                        selectedItem={this.state.selected}
+                        selectedItem={selected}
                         infiniteLoop={true}
                         transitionTime={200}
                     /* I'd like to have an infinite scroll here, however the scroll doesn't start until
@@ -93,6 +104,21 @@ class QuotesModal extends React.Component {
                         {this.displayQuotes()}
                     </Carousel>
                 </Rodal>
+                {
+                    visible ?
+                    <Music sound={`/assets/audio/whoosh-in.mp3`} loop={false} /> :
+                    null
+                }
+                {
+                    closed ?
+                    <Music sound={`/assets/audio/whoosh-out.mp3`} loop={false} /> :
+                    null
+                }
+                {
+                    visible && quotes[selected].sound ?
+                    <Music sound={quotes[selected].sound} loop={true}/> :
+                    null
+                }
             </div>
         )
     }

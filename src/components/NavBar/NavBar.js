@@ -7,7 +7,7 @@ class NavBar extends Component {
   render() {
     return (
       <Bounce right when={this.props.showNavbar}>
-        <div className="navbar-container" style={{zIndex: 100}}>
+        <div className="navbar-container" style={{zIndex: 100, pointerEvents: this.props.showNavbar ? null : 'none'}}>
 
         </div>
       </Bounce>

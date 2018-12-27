@@ -41,6 +41,7 @@ they already believe.  In the end, for me, being able to admit I don't know is m
         source: `Bill S Preston Esquire and Ted Theodore Logan, "Bill & Ted's Excellent Adventure"`,
         image: require(`../../../../assets/images/billandted.gif`),
         mark: true,
+        sound: `/assets/audio/In_Time.mp3`,
         explanation: `One of the most important lessons that I've learned from my youth is that, whenever possible, being 
 kind to others is the ultimate catalyst for positive and social growth. In turn, being able to have fun is how all of us 
 are able to wake up with something to look forward to.`
