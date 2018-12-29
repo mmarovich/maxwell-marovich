@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import Landing from '../../components/Landing';
-import About from '../../components/About';
+import { Landing, About } from '../../components/main';
 
 class Main extends Component {
   constructor(props) {
@@ -25,10 +24,11 @@ class Main extends Component {
   }
 
   render() {
+    const { height, width } = this.state;
     return(
       <div className="main-container page" style={{backgroundColor: 'black', overflow: 'hidden'}}>
-        <Landing view={{height: this.state.height, width: this.state.width}} />
-        <About view={{height: this.state.height, width: this.state.width}} />
+        <Landing view={{height, width}} />
+        <About view={{height, width}} />
       </div>
     )
   }

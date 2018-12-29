@@ -1,0 +1,103 @@
+.shimmer{
+  /* styling stuff */
+  font-family:"Alegreya Sans";
+  font-weight:300;
+  font-size:3em;
+  margin:0 auto;
+  padding: 0 40px;
+  text-align: center;
+  color: rgba(255,255,255,0.1);
+}
+.shimmer {
+/* the shimmer magic */
+background: -webkit-radial-gradient(white, black, black);
+background: -moz-radial-gradient((white, black, black, grey, grey, grey));
+background: radial-gradient((white, black, black, grey, grey, grey));
+-webkit-background-size: 125px 112%;
+-moz-background-size: 125px 112%;
+background-size: 125px 112%;
+-webkit-background-clip: text;
+-moz-background-clip: text;
+background-clip: text;
+-webkit-animation-name: shimmer;
+-moz-animation-name: shimmer;
+-webkit-animation-name: shimmer;
+animation-name: shimmer;
+-webkit-animation-duration: 60s;
+-moz-animation-duration: 60s;
+-webkit-animation-duration: 60s;
+animation-duration: 60s;
+-webkit-animation-iteration-count: infinite;
+-moz-animation-iteration-count: infinite;
+-webkit-animation-iteration-count: infinite;
+animation-iteration-count: infinite;
+/* background-repeat: no-repeat; */
+background-position: 0 0;
+background-color: #222;
+}
+
+@-moz-keyframes shimmer {
+0% {
+  background-position: top left;
+}
+50% {
+  background-position: top right;
+}
+
+100% {
+  background-position: top left;
+}
+}
+
+@-webkit-keyframes shimmer {
+0% {
+  background-position: top left;
+}
+50% {
+  background-position: top right;
+}
+
+100% {
+  background-position: top left;
+}
+}
+
+@-o-keyframes shimmer {
+0% {
+  background-position: top left;
+}
+50% {
+  background-position: top right;
+}
+
+100% {
+  background-position: top left;
+}
+}
+
+@-ms-keyframes shimmer {
+0% {
+  background-position: top left;
+}
+50% {
+  background-position: top right;
+}
+
+100% {
+  background-position: top left;
+}
+}
+
+@keyframes shimmer {
+0% {
+  background-position: top left;
+}
+
+50% {
+  background-position: top right;
+}
+
+100% {
+  background-position: top left;
+}
+}

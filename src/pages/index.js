@@ -1,7 +1,7 @@
-import Experience from './Experience';
+import Resume from './Resume';
 import Main from './Main';
 
 export {
-    Experience,
+    Resume,
     Main
 }
