@@ -1,11 +1,11 @@
 import ResumeTabs from './ResumeTabs';
-import About from './About';
+import AboutMe from './AboutMe';
 import Education from './Education';
 import Work from './Work';
 
 export {
     ResumeTabs,
-    About,
+    AboutMe,
     Education,
     Work,
 }

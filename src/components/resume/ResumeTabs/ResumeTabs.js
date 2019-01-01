@@ -13,6 +13,7 @@ const ResumeTabs = ({index, handleChange}) => (
 const styles = {
     tabs: {
         background: '#fff',
+        margin: '0 70px 0 0'
     },
 }
 

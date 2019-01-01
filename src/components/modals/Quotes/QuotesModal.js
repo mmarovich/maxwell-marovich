@@ -14,8 +14,6 @@ class QuotesModal extends React.Component {
         super(props);
 
         this.state = {
-            visible: false,
-            closed: false,
             quotes: [],
             selected: 0,
         };
@@ -25,23 +23,12 @@ class QuotesModal extends React.Component {
         this.setState({ quotes })
     }
 
-    componentDidUpdate() {
-        const {visible, quotes, selected } = this.state;
-        if (visible && quotes[selected].sound) {
-            console.log(quotes[selected].sound)
-        }
-    }
-
-    handleModal = () => {
-        this.setState({ visible: this.state.visible ? false : true, closed: this.state.visible ? true : false});
-    }
-
     displayQuotes = () => {
         return this.state.quotes.map((quote, i) => {
             return <QuoteList
                 key={i}
                 view={this.props.view}
-                visible={this.state.visible}
+                visible={this.props.visible}
                 selected={this.state.selected}
                 quote={quote}
                 index={i}
@@ -50,35 +37,15 @@ class QuotesModal extends React.Component {
     }
 
     render() {
-        const {visible, quotes, selected, closed } = this.state;
-        
+        const {visible, closed, handleModal } = this.props;
+        const { quotes, selected } = this.state;
+
         return (
             <div style={{ height: '100%' }}>
-                <div
-                    onClick={this.handleModal}
-                    style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        textAlign: 'center',
-                        height: '100%',
-                        width: '300px',
-                        padding: '10px',
-                        backgroundColor: 'rgba(50,50,50,1)',
-                        margin: 'auto',
-                        backgroundImage: `url(${require(`../../../../../assets/images/quotes.png`)})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center center',
-                        backgroundRepeat: 'no-repeat',
-                        cursor: 'pointer',
-                    }}
-                >
-                    <h1 style={{ color: 'white', fontSize: '50px', lineHeight: '80px' }}>Sayings To Live By</h1>
-                </div>
 
                 <Rodal
                     visible={visible}
-                    onClose={this.handleModal}
+                    onClose={handleModal}
                     showCloseButton={false}
                     animation="slideLeft"
                     duration={1000}

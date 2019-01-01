@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 // import Select from '@material-ui/core/Select';
 import SwipeableViews from 'react-swipeable-views';
 
-import { ResumeTabs, About, Education, Work } from '../../components/resume';
+import { ResumeTabs, AboutMe, Education, Work } from '../../components/resume';
 
 class Resume extends Component {
     constructor(props) {
@@ -50,7 +50,7 @@ class Resume extends Component {
             <div>
                 <ResumeTabs index={index} handleChange={this.handleChange} />
                 <SwipeableViews index={index} onChangeIndex={this.handleChangeIndex}>
-                    <About />
+                    <AboutMe width={this.state.width} height={this.state.height} />
                     <Education />
                     <Work />
                 </SwipeableViews>
