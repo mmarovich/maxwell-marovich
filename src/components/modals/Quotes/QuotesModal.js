@@ -7,7 +7,6 @@ import Music from './Music';
 
 import quotes from './quotes';
 import QuoteList from './QuoteList';
-import '../rodal.css';
 
 class QuotesModal extends React.Component {
     constructor(props) {

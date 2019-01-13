@@ -5,8 +5,8 @@ import Skills from './Skills';
 
 const AboutMe = ({ width, height }) => {
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', backgroundColor: '#FEA900', padding: 15, color: '#fff',
-            height: width > 550 ? height - 48 : null }}>
+        <div style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'rgb(132, 0, 0)', padding: 15, color: '#fff',
+            height: width > 550 ? height - 78 : null }}>
             <div style={{
                 display: 'flex',
                 flexWrap: 'wrap',

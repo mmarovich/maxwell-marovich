@@ -51,7 +51,7 @@ class Resume extends Component {
                 <ResumeTabs index={index} handleChange={this.handleChange} />
                 <SwipeableViews index={index} onChangeIndex={this.handleChangeIndex}>
                     <AboutMe width={this.state.width} height={this.state.height} />
-                    <Education />
+                    <Education width={this.state.width} height={this.state.height} />
                     <Work />
                 </SwipeableViews>
             </div>

@@ -49,8 +49,8 @@ class Skills extends Component {
                 <Line 
                     percent={skill.level} 
                     strokeWidth="15" 
-                    strokeColor="yellow" 
-                    trailWidth="10"    
+                    strokeColor="red" 
+                    trailWidth="15"    
                 />
             </div>
         })

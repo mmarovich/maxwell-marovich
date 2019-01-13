@@ -3,7 +3,6 @@ import Fade from 'react-reveal/Bounce';
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import { Tooltip } from "reakit";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import '../rodal.css';
 
 const QuoteList = ({view, index, quote, visible, selected}) => {
     return (
