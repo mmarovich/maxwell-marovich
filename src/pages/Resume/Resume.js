@@ -44,14 +44,14 @@ class Resume extends Component {
     };
 
     render() {
-        const { index } = this.state;
+        const { index, width, height } = this.state;
 
         return (
             <div>
-                <ResumeTabs index={index} handleChange={this.handleChange} />
+                <ResumeTabs index={index} handleChange={this.handleChange} width={width} />
                 <SwipeableViews index={index} onChangeIndex={this.handleChangeIndex}>
-                    <AboutMe width={this.state.width} height={this.state.height} />
-                    <Education width={this.state.width} height={this.state.height} />
+                    <AboutMe width={width} height={height} />
+                    <Education width={width} height={height} />
                     <Work />
                 </SwipeableViews>
             </div>

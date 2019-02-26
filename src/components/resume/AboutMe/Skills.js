@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Line, Circle } from 'rc-progress';
 import { FaHtml5, FaReact, FaDatabase } from 'react-icons/fa';
 import { IoLogoJavascript, IoLogoNodejs, IoMdLeaf } from 'react-icons/io'
+import ParticleEffectButton from 'react-particle-effect-button'
 
 import skills from './skillsList';
 
@@ -10,18 +11,18 @@ class Skills extends Component {
         super(props);
 
         this.state = {
-            skills: []
+            skills: [],
         }
     }
 
     componentDidMount() {
-        this.setState({skills})
+        this.setState({ skills })
     }
 
     renderSkills = () => {
         return this.state.skills.map((skill, i) => {
             let logo;
-            switch(skill.skill) {
+            switch (skill.skill) {
                 case 'HTML/CSS':
                     logo = <FaHtml5 size={80} color='red' />
                     break;
@@ -43,22 +44,22 @@ class Skills extends Component {
                 default:
                     logo = null;
             }
-            return <div key={i} style={{ width: '100px', margin: '15px 15px', textAlign: 'center'}}>
+            return <div key={i} style={{ width: '100px', margin: '15px 15px', textAlign: 'center' }}>
                 {logo}
                 <h3>{skill.skill}</h3>
-                <Line 
-                    percent={skill.level} 
-                    strokeWidth="15" 
-                    strokeColor="red" 
-                    trailWidth="15"    
+                <Line
+                    percent={skill.level}
+                    strokeWidth="15"
+                    strokeColor="red"
+                    trailWidth="15"
                 />
             </div>
         })
     }
 
     render() {
-        return(
-            <div style={{display: 'flex', flex: 1, flexWrap: 'wrap', justifyContent: 'space-around', alignItems: 'center'}}>
+        return (
+            <div style={{ display: 'flex', flex: 1, flexWrap: 'wrap', justifyContent: 'space-around', alignItems: 'center' }}>
                 {this.renderSkills()}
             </div>
         )

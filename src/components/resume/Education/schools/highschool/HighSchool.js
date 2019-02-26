@@ -1,19 +1,19 @@
 import React, { Fragment } from 'react';
-import hs_pics from './hs_pics'
+import hs_info from './hs_info'
 
 
 const renderPics = (width) => {
-    return hs_pics.map((pic, i) => {
+    return hs_info.map((info, i) => {
         return (
             <div key={i}>
-                <img style={{ width: '300px', margin: '30px 20px 5px 20px' }} src={pic.image} />
-                <p style={{ textAlign: 'center', margin: '0 20px', maxWidth: '300px' }}>{pic.description}</p>
+                <img style={{ width: '300px', margin: '30px 20px 5px 20px' }} src={info.image} />
+                <p style={{ textAlign: 'center', margin: '0 20px', maxWidth: '300px' }}>{info.description}</p>
             </div>
         )
     })
 }
 
-const HighSchoolInfo = ({ school, width }) => {
+const HighSchool = ({ width }) => {
 
     return (
         <Fragment>
@@ -41,4 +41,4 @@ const styles = {
     }
 }
 
-export default HighSchoolInfo;
+export default HighSchool;

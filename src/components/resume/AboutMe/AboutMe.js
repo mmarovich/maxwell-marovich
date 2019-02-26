@@ -1,4 +1,6 @@
 import React from 'react';
+import ParticleEffectButton from 'react-particle-effect-button'
+
 import { IoLogoGithub, IoLogoLinkedin, IoIosMail } from 'react-icons/io'
 
 import Skills from './Skills';
@@ -7,6 +9,7 @@ const AboutMe = ({ width, height }) => {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'rgb(132, 0, 0)', padding: 15, color: '#fff',
             height: width > 550 ? height - 78 : null }}>
+            <h1 style={{ textAlign: 'center' }}>About Me</h1>
             <div style={{
                 display: 'flex',
                 flexWrap: 'wrap',
