@@ -7,22 +7,25 @@ class CNAButton extends Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            hidden: false
-        }
+        // this.state = {
+        //     hidden: false,
+        //     initialHide: false
+        // }
     }
 
     render() {
         return (
             <ParticleEffectButton
                 color='red'
-                hidden={this.state.hidden}
-                // duration={2000}
-                // type={['circle','rectangle','triangle'][Math.floor(Math.random()*3)]}
+                hidden={this.props.CNADesintegrate}
+                duration={2000}
+                type={['circle', 'rectangle', 'triangle'][Math.floor(Math.random() * 3)]}
+            // onBegin={() => this.props.nextHide('CNANextHide')}
             >
                 <button
-                    className="button button3"
-                    onClick={() => this.setState({hidden: true})}
+                    className={`button button3`}
+                    style={{ visibility: this.props.CNAKeepHidden ? "hidden" : "visible" }}
+                    onClick={() => this.props.desintegrate('CNADesintegrate', 'CNAKeepHidden', 'CNAInfo')}
                 >Medical</button>
             </ParticleEffectButton>
         )
